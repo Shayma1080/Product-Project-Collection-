@@ -1,6 +1,8 @@
 package be.intecbrussel.project.collection;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Random;
 
 public class ProductFactory {
@@ -14,12 +16,31 @@ public class ProductFactory {
         this.productSorter = productSorter;
     }
 
-    public int createProducts(int amount){
+    public void createProducts(int amount) {
         ArrayList<FoodProduct> food = new ArrayList<>();
-        for(int i= 0 ;i < amount;i++){
+        for (int i = 0; i < random.nextInt(151); i++) {
+            if (true) {
+                foodProducts[i] += amount;
+                int foodRandom = random.nextInt(foodProducts.length);
+                String gekozenwoord1 = foodProducts[i];
+                System.out.println(i + " " + gekozenwoord1 +" ");
+            } else if (true) {
+                healthProducts[i] += amount;
+                int healthRandom = random.nextInt(healthProducts.length);
+                String gekozenwoord2 = healthProducts[i];
+                System.out.println(i + " " + gekozenwoord2 + " ");
+            } else {
+                electricProduct[i] += amount;
+                int electriceRandom = random.nextInt(electricProduct.length);
+                String gekozenwoord3 = electricProduct[i];
+                System.out.println(i + " " + gekozenwoord3 +" ");
+            }
 
         }
-
-        return amount;
+//        Queue<ProductSorter> products = new PriorityQueue<>();
+//        products order = productSorter.peek();
+//        while(productSorter!=null){
+//            System.out.println();
+//        }
     }
 }
