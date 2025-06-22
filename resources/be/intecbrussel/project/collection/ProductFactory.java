@@ -1,9 +1,6 @@
 package be.intecbrussel.project.collection;
 
-import java.util.ArrayList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Random;
+import java.util.*;
 
 public class ProductFactory {
     Random random = new Random();
@@ -17,30 +14,24 @@ public class ProductFactory {
     }
 
     public void createProducts(int amount) {
-        ArrayList<FoodProduct> food = new ArrayList<>();
-        for (int i = 0; i < random.nextInt(151); i++) {
-            if (true) {
-                foodProducts[i] += amount;
-                int foodRandom = random.nextInt(foodProducts.length);
-                String gekozenwoord1 = foodProducts[i];
-                System.out.println(i + " " + gekozenwoord1 +" ");
-            } else if (true) {
-                healthProducts[i] += amount;
-                int healthRandom = random.nextInt(healthProducts.length);
-                String gekozenwoord2 = healthProducts[i];
-                System.out.println(i + " " + gekozenwoord2 + " ");
-            } else {
-                electricProduct[i] += amount;
-                int electriceRandom = random.nextInt(electricProduct.length);
-                String gekozenwoord3 = electricProduct[i];
-                System.out.println(i + " " + gekozenwoord3 +" ");
+        List<Product> product = new ArrayList<>();
+        for(int i = 0; i< amount; i++) {
+            int categoerie = random.nextInt(3); // random list
+            int randomId = random.nextInt(151); // random ID
+            switch (categoerie) {
+                case 0 -> {
+                    String name = foodProducts[random.nextInt(foodProducts.length)];
+                    productSorter.sortProduct(new FoodProduct(name,randomId));
+                }
+                case 1 -> {
+                    String name = healthProducts[random.nextInt(healthProducts.length)];
+                    productSorter.sortProduct(new HealthProduct(name,randomId));
+                }
+                case 2 -> {
+                    String name = electricProduct[random.nextInt(electricProduct.length)];
+                    productSorter.sortProduct(new ElectricProduct(name,randomId));
+                }
             }
-
         }
-//        Queue<ProductSorter> products = new PriorityQueue<>();
-//        products order = productSorter.peek();
-//        while(productSorter!=null){
-//            System.out.println();
-//        }
     }
 }

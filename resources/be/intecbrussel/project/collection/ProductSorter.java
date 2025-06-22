@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductSorter {
-    private List<Product> products;
-    private List<FoodProduct> foodProducts;
-    private List<HealthProduct> healthProducts;
-    private List<ElectricProduct> electricProducts;
+    private List<Product> products= new ArrayList<>();
+    private List<FoodProduct> foodProducts= new ArrayList<>();
+    private List<HealthProduct> healthProducts= new ArrayList<>();
+    private List<ElectricProduct> electricProducts= new ArrayList<>();
+
 
     public List<FoodProduct> getFoodProducts() {
         return foodProducts;
@@ -23,13 +24,16 @@ public class ProductSorter {
 
     public Product sortProduct(Product product){
 
-        products.add((Product) foodProducts);
-        products.add((Product)healthProducts);
-        products.add((Product)electricProducts);
-        products.add(product);
-        products.stream().distinct();
-
-
+        if(!products.contains(product)){
+            products.add(product);
+            if(product instanceof FoodProduct food){
+                foodProducts.add(food);
+            } else if (product instanceof HealthProduct health) {
+                healthProducts.add(health);
+            }else if(product instanceof  ElectricProduct electricProduct){
+                electricProducts.add(electricProduct);
+            }
+        }
         return product;
     }
 }
