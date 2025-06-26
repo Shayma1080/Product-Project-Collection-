@@ -4,7 +4,7 @@ public class ProductApp {
     public static void main(String[] args) {
         ProductSorter sorter = new ProductSorter();
         ProductFactory factory = new ProductFactory(sorter);
-        factory.createProducts(101);
+        factory.createProducts(100);
 
         System.out.println("Food products: " + sorter.getFoodProducts().size());
         System.out.println("Health products: " +sorter.getHealthProducts().size());

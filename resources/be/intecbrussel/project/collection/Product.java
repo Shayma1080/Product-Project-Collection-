@@ -11,6 +11,14 @@ public class Product {
         this.productId = productId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
